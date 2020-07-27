@@ -1,0 +1,21 @@
+Student Management System Requirements sheet.
+
+=======================================================
+ - Add student
+ - Delete student by Id
+ - View students
+ - Update student by Id
+=======================================================
+ - Add grade to student by student id, course id
+ - Get student average grade by student id, standard calculation with rounding
+ - Get student number of credits by student id
+ - Get students ordered by number of credits
+=======================================================
+Restrictions:
+ - First Name / Last Name can't be over 64 characters long.
+ - First Name / Last Name can't be null
+ - Student id can't be null
+ - Error message for adding a grade to a non existing student: "Student not existing in database!"
+ - Error message for adding a grade to a non existing course: "Student not enrolled to course!"
+ - Error message for updating a student with another id than before: "Operation not allowed!"
+ - Can't have 2 students with the same id
