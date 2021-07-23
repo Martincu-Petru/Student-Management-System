@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Text;
 using Student_Management_System.DAL;
 using Student_Management_System.Models;
 
@@ -16,20 +14,20 @@ namespace Student_Management_System.Controllers
         }
         public void Add(Student myObject)
         {
-            if ((myObject as Student).Id == null)
+            if (myObject.Id == null)
             {
                 throw new Exception("Student doesn't have an unique id.");
             }
-            _context.Students.Add(myObject as Student);
+            _context.Students.Add(myObject);
         }
 
         public void Delete(Student myObject)
         {
             foreach (var contextStudent in _context.Students)
             {
-                if (contextStudent.Id == (myObject as Student).Id)
+                if (contextStudent.Id == myObject.Id)
                 {
-                    _context.Students.Remove(myObject as Student);
+                    _context.Students.Remove(myObject);
                     return;
                 }
             }
@@ -41,7 +39,7 @@ namespace Student_Management_System.Controllers
         {
             foreach (var student in _context.Students)
             {
-                var contextStudent = myObject as Student;
+                var contextStudent = myObject;
                 if (student.Id == contextStudent.Id)
                 {
                     contextStudent.FirstName = student.FirstName;
@@ -130,24 +128,24 @@ namespace Student_Management_System.Controllers
         {
             public int Compare(Student x, Student y)
             {
-                var numberOfCredits_1 = 0;
-                var numberOfCredits_2 = 0;
+                var numberOfCredits1 = 0;
+                var numberOfCredits2 = 0;
 
                 foreach (var enrollment in x.Enrollments)
                 {
-                    numberOfCredits_1 = numberOfCredits_1 + enrollment.Grade ?? 0 * enrollment.Course.Credits;
+                    numberOfCredits1 = numberOfCredits1 + enrollment.Grade ?? 0 * enrollment.Course.Credits;
                 }
 
                 foreach (var enrollment in y.Enrollments)
                 {
-                    numberOfCredits_2 = numberOfCredits_2 + enrollment.Grade ?? 0 * enrollment.Course.Credits;
+                    numberOfCredits2 = numberOfCredits2 + enrollment.Grade ?? 0 * enrollment.Course.Credits;
                 }
 
-                if (numberOfCredits_1 > numberOfCredits_2)
+                if (numberOfCredits1 > numberOfCredits2)
                 {
                     return -1;
                 }
-                else if(numberOfCredits_1 < numberOfCredits_2)
+                else if(numberOfCredits1 < numberOfCredits2)
                 {
                     return 1;
                 }

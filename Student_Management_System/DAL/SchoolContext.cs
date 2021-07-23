@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
 using Student_Management_System.Models;
 
 namespace Student_Management_System.DAL

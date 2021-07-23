@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Student_Management_System.Models
+﻿namespace Student_Management_System.Models
 {
     public class Enrollment
     {
